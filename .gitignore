@@ -1,0 +1,12 @@
+node_modules
+logs
+build
+*.zip
+test.js
+t1.js
+post_data.txt
+*.html
+*.bat
+*.sh
+*.py
+# config/secrets.json # If repository is public

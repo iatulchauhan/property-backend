@@ -1,0 +1,33 @@
+{
+  "db_url": "mongodb+srv://property:bWlywrF4IA0xgfXb@cluster0.jtrk9z5.mongodb.net/trader",
+  "redis_url": "redis://nodejs:Liberator123@@redis-17904.c301.ap-south-1-1.ec2.cloud.redislabs.com:17904",
+  "jwt_token_secret": "seCr3t-Properties^&@-enc-kEY",
+  "access_token_duration": 86400000,
+  "refresh_token_duration": 864000000,
+  "refresh_jwt_token_secret": "R|-Fre_|-HSP:?-seCr3t-Properties^&@-enc-kEY",
+  "Winston": {
+    "level": "debug"
+  },
+  "timeZone": "Asia/Calcutta",
+  "aws": {
+    "accessKeyId": "AKIAYS2NXERRGQF3R22D",
+    "secretAccessKey": "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",
+    "region": "ap-south-1",
+    "bucket_name": "shahinvestment",
+    "bucketURL": "https://shahinvestment.s3.ap-south-1.amazonaws.com"
+  },
+  "fcmKey": "",
+  "backend_url": "http://localhost:4000",
+  "logo": "XXXX",
+  "nodeMail": {
+    "mail": "fiscalfinserve6@gmail.com",
+    "password": "clnbaeldnnxeelvg",
+    "host": "smtp.gmail.com",
+    "service": "gmail"
+  },
+  "sms91": {
+    "base_url": "https://control.msg91.com/api/v5/otp",
+    "template_id": "65925ac4d6fc05526e6af282",
+    "auth_key": "410948A4wlUwjnQn8N65686e6eP1"
+  }
+}
