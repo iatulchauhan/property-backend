@@ -920,3 +920,4 @@ export const serviceBookingTemplate = (data: any) => {
     </body>
     </html>`
 }
+

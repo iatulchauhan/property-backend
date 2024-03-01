@@ -47,6 +47,8 @@ export const adminLogin = async (req: Request, res: Response) => {
     let response: any = (await userModel.aggregate([{ $match: { email: body.email, isActive: true } }]))[0]
     if (!response)
       return res.status(400).json(await apiResponse(400, responseMessage?.invalidUserPasswordEmail, {}, {}));
+    if (response?.isBlock == true)
+      return res.status(403).json(await apiResponse(403, responseMessage.accountBlock, {}, {}));
     if (!response?.password)
       return res.status(400).json(await apiResponse(400, responseMessage?.invalidUserPasswordEmail, {}, {}));
     const passwordMatch = await bcryptjs.compare(body.password, response.password)

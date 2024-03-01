@@ -139,18 +139,6 @@ export const generate_refresh_token = async (req: Request, res: Response, next: 
     })
 }
 
-export const login = async (req: Request, res: Response, next: any) => {
-    const schema = Joi.object({
-        phoneNumber: Joi.string().required().error(new Error('phoneNumber is required!')),
-    })
-    schema.validateAsync(req.body).then(async result => {
-        req.body = result
-        return next()
-    }).catch(async error => {
-        res.status(400).json(await apiResponse(400, error.message, {}, {}));
-    })
-}
-
 export const by_id = async (req: Request, res: Response, next: any) => {
     if (!isValidObjectId(req.params.id)) return res.status(400).json(await apiResponse(400, responseMessage?.invalidId('id'), {}, {}))
     return next()
@@ -212,6 +200,55 @@ export const reset_password = async (req: Request, res: Response, next: any) => 
     })
     schema.validateAsync(req.body).then(async result => {
         if (!isValidObjectId(result.id)) return res.status(400).json(await apiResponse(400, 'invalid id', {}, {}))
+        return next()
+    }).catch(async error => {
+        res.status(400).json(await apiResponse(400, error.message, {}, {}));
+    })
+}
+
+///
+
+export const userSignup = async (req: Request, res: Response, next: any) => {
+
+    const schema = Joi.object({
+        name: Joi.string().required().error(new Error('name is required!')),
+        email: Joi.string().required().error(new Error('email is required!')),
+        password: Joi.string().required().error(new Error('password is required!')),
+        phoneNumber: Joi.string().required().error(new Error('phoneNumber is required!')),
+
+    })
+    schema.validateAsync(req.body).then(async result => {
+        req.body = result
+        return next()
+    }).catch(async error => {
+        res.status(400).json(await apiResponse(400, error.message, {}, {}));
+    })
+}
+
+
+export const login = async (req: Request, res: Response, next: any) => {
+    const schema = Joi.object({
+        email: Joi.string().required().error(new Error('email is required!')),
+        password: Joi.string().required().error(new Error('password is required!')),
+    })
+    schema.validateAsync(req.body).then(async result => {
+        req.body = result
+        return next()
+    }).catch(async error => {
+        res.status(400).json(await apiResponse(400, error.message, {}, {}));
+    })
+}
+
+
+export const pdf = async (req: Request, res: Response, next: any) => {
+    const schema = Joi.object({
+        name: Joi.string().required().error(new Error('name is required!')),
+        email: Joi.string().required().error(new Error('email is required!')),
+        mobileNumber: Joi.string().required().error(new Error('mobileNumber is required!')),
+        message: Joi.string().required().error(new Error('message is required!')),
+    })
+    schema.validateAsync(req.body).then(async result => {
+        req.body = result
         return next()
     }).catch(async error => {
         res.status(400).json(await apiResponse(400, error.message, {}, {}));
